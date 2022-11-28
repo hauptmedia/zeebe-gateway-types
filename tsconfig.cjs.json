@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "target": "es2020",
+    "outDir": "dist/cjs",
+    "module": "commonjs"
+  },
+  "exclude": [
+    "node_modules/**"
+  ]
+}
