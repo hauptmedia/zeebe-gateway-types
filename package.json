@@ -1,6 +1,6 @@
 {
   "name": "@hauptmedia/zeebe-gateway-types",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Type definitions for the Zeebe Workflow Automation Engine Gateway Service.",
   "author": {
     "name": "Julian Haupt",
@@ -51,6 +51,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",
+    "ajv": "^8.11.2",
     "eslint": "^7.8.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
