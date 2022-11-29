@@ -12,6 +12,7 @@
                     "type": "string"
                 }
             },
+            "required": [ "name", "content" ],
             "type": "object"
         }
     },
@@ -24,6 +25,7 @@
             "type": "array"
         }
     },
+    "required": [ "resources" ],
     "type": "object"
 }
 
