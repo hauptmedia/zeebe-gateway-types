@@ -4,14 +4,8 @@
         "Resource": {
             "properties": {
                 "content": {
-                    "additionalProperties": false,
                     "description": "the file content as a UTF8-encoded string",
-                    "patternProperties": {
-                        "^[0-9]+$": {
-                            "type": "number"
-                        }
-                    },
-                    "type": "object"
+                    "type": "string"
                 },
                 "name": {
                     "description": "the resource name, e.g. myProcess.bpmn or myDecision.dmn",
