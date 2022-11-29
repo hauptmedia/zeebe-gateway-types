@@ -12,14 +12,20 @@ import * as Topology from './io/zeebe/command/v1/Topology.json'
 
 export const ZeebeGatewayCommandJsonSchemaRegistry = {
     'io.zeebe.command.v1.ActivateJobs': ActivateJobs,
-    'io.zeebe.command.v1.CancelProcessInstance.json': CancelProcessInstance,
+    'io.zeebe.command.v1.CancelProcessInstance': CancelProcessInstance,
     'io.zeebe.command.v1.CompleteJob': CompleteJob,
     'io.zeebe.command.v1.CreateProcessInstance': CreateProcessInstance,
     'io.zeebe.command.v1.CreateProcessInstanceWithResult': CreateProcessInstanceWithResult,
-    'io.zeebe.command.v1.DeployResource.json': DeployResource,
+    'io.zeebe.command.v1.DeployResource': DeployResource,
     'io.zeebe.command.v1.FailJob': FailJob,
     'io.zeebe.command.v1.PublishMessage': PublishMessage,
     'io.zeebe.command.v1.ResolveIncident': ResolveIncident,
-    'io.zeebe.command.v1.ThrowError.json': ThrowError,
+    'io.zeebe.command.v1.ThrowError': ThrowError,
     'io.zeebe.command.v1.Topology': Topology
 }
+
+export type ZeebeGatewayCommandTypes =
+    'io.zeebe.command.v1.ActivateJobs' | 'io.zeebe.command.v1.CancelProcessInstance' | 'io.zeebe.command.v1.CompleteJob' |
+    'io.zeebe.command.v1.CreateProcessInstance' | 'io.zeebe.command.v1.CreateProcessInstanceWithResult' | 'io.zeebe.command.v1.DeployResource' |
+    'io.zeebe.command.v1.FailJob' | 'io.zeebe.command.v1.PublishMessage' | 'io.zeebe.command.v1.ResolveIncident' |
+    'io.zeebe.command.v1.ThrowError' | 'io.zeebe.command.v1.Topology';
