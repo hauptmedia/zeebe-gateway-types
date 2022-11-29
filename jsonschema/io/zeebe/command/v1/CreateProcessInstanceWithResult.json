@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "CreateProcessInstanceRequest": {
+            "properties": {
+                "bpmnProcessId": {
+                    "description": "the BPMN process ID of the process definition",
+                    "type": "string"
+                },
+                "processDefinitionKey": {
+                    "description": "the unique key identifying the process definition (e.g. returned from a process in the DeployProcessResponse message)",
+                    "type": "number"
+                },
+                "variables": {
+                    "description": "JSON document that will instantiate the variables for the root variable scope of the process instance; it must be a JSON object, as variables will be mapped in a\nkey-value fashion. e.g. { \"a\": 1, \"b\": 2 } will create two variables, named \"a\" and\n\"b\" respectively, with their associated values. [{ \"a\": 1, \"b\": 2 }] would not be a valid argument, as the root of the JSON document is an array and not an object.",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "the version of the process; set to -1 to use the latest version",
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "properties": {
+        "fetchVariables": {
+            "description": "list of names of variables to be included in `CreateProcessInstanceWithResultResponse.variables`\nif empty, all visible variables in the root scope will be returned.",
+            "items": {
+                "type": "string"
+            },
+            "type": "array"
+        },
+        "request": {
+            "$ref": "#/definitions/CreateProcessInstanceRequest"
+        },
+        "requestTimeout": {
+            "description": "timeout (in ms). the request will be closed if the process is not completed\nbefore the requestTimeout.\nif requestTimeout = 0, uses the generic requestTimeout configured in the gateway.",
+            "type": "number"
+        }
+    },
+    "type": "object"
+}
+
