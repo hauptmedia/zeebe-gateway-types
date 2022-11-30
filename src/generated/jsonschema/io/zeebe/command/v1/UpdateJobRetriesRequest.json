@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "jobKey": {
+      "description": "the unique job identifier, as obtained through ActivateJobs",
+      "type": "number"
+    },
+    "retries": {
+      "description": "the new amount of retries for the job; must be positive",
+      "type": "number"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

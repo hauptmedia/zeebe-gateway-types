@@ -1,0 +1,68 @@
+{
+  "type": "object",
+  "properties": {
+    "processInstanceKey": {
+      "description": "the key of the process instance that should be modified",
+      "type": "number"
+    },
+    "activateInstructions": {
+      "description": "instructions describing which elements should be activated in which scopes,\nand which variables should be created",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ModifyProcessInstanceRequest_ActivateInstruction"
+      }
+    },
+    "terminateInstructions": {
+      "description": "instructions describing which elements should be terminated",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ModifyProcessInstanceRequest_TerminateInstruction"
+      }
+    }
+  },
+  "definitions": {
+    "ModifyProcessInstanceRequest_ActivateInstruction": {
+      "type": "object",
+      "properties": {
+        "elementId": {
+          "description": "the id of the element that should be activated",
+          "type": "string"
+        },
+        "ancestorElementInstanceKey": {
+          "description": "the key of the ancestor scope the element instance should be created in;\nset to -1 to create the new element instance within an existing element\ninstance of the flow scope",
+          "type": "number"
+        },
+        "variableInstructions": {
+          "description": "instructions describing which variables should be created",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ModifyProcessInstanceRequest_VariableInstruction"
+          }
+        }
+      }
+    },
+    "ModifyProcessInstanceRequest_VariableInstruction": {
+      "type": "object",
+      "properties": {
+        "variables": {
+          "description": "JSON document that will instantiate the variables for the root variable scope of the\nprocess instance; it must be a JSON object, as variables will be mapped in a\nkey-value fashion. e.g. { \"a\": 1, \"b\": 2 } will create two variables, named \"a\" and\n\"b\" respectively, with their associated values. [{ \"a\": 1, \"b\": 2 }] would not be a\nvalid argument, as the root of the JSON document is an array and not an object.",
+          "type": "string"
+        },
+        "scopeId": {
+          "description": "the id of the element in which scope the variables should be created;\nleave empty to create the variables in the global scope of the process instance",
+          "type": "string"
+        }
+      }
+    },
+    "ModifyProcessInstanceRequest_TerminateInstruction": {
+      "type": "object",
+      "properties": {
+        "elementInstanceKey": {
+          "description": "the id of the element that should be terminated",
+          "type": "number"
+        }
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
