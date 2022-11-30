@@ -25,7 +25,10 @@ const blacklist = [
     "GetServerSocketsResponse", "GetServersRequest", "GetServersResponse", "GetSocketRequest", "GetSocketResponse",
     "GetSubchannelRequest", "GetSubchannelResponse", "GetTopChannelsRequest", "GetTopChannelsResponse",
     "ServerStatusResponse", "ServerErrorResponse",
-    "Http2ServerRequest", "Http2ServerResponse", "ServerResponse", "ClientRequest"
+    "Http2ServerRequest", "Http2ServerResponse", "ServerResponse", "ClientRequest",
+
+    //deprecated
+    "DeployProcessRequest", "DeployProcessResponse"
 ];
 const symbols = generator.getUserSymbols().filter(name => (name.endsWith("Request") || name.endsWith("Response")) && !blacklist.includes(name))
 

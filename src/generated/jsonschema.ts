@@ -8,8 +8,6 @@ import * as CreateProcessInstanceRequest from './jsonschema/io/zeebe/command/v1/
 import * as CreateProcessInstanceResponse from './jsonschema/io/zeebe/command/v1/CreateProcessInstanceResponse.json'
 import * as CreateProcessInstanceWithResultRequest from './jsonschema/io/zeebe/command/v1/CreateProcessInstanceWithResultRequest.json'
 import * as CreateProcessInstanceWithResultResponse from './jsonschema/io/zeebe/command/v1/CreateProcessInstanceWithResultResponse.json'
-import * as DeployProcessRequest from './jsonschema/io/zeebe/command/v1/DeployProcessRequest.json'
-import * as DeployProcessResponse from './jsonschema/io/zeebe/command/v1/DeployProcessResponse.json'
 import * as DeployResourceRequest from './jsonschema/io/zeebe/command/v1/DeployResourceRequest.json'
 import * as DeployResourceResponse from './jsonschema/io/zeebe/command/v1/DeployResourceResponse.json'
 import * as FailJobRequest from './jsonschema/io/zeebe/command/v1/FailJobRequest.json'
@@ -39,8 +37,6 @@ export const ZeebeGatewayCommandJsonSchemaRegistry = {
   'io.zeebe.command.v1.CreateProcessInstanceResponse': CreateProcessInstanceResponse,
   'io.zeebe.command.v1.CreateProcessInstanceWithResultRequest': CreateProcessInstanceWithResultRequest,
   'io.zeebe.command.v1.CreateProcessInstanceWithResultResponse': CreateProcessInstanceWithResultResponse,
-  'io.zeebe.command.v1.DeployProcessRequest': DeployProcessRequest,
-  'io.zeebe.command.v1.DeployProcessResponse': DeployProcessResponse,
   'io.zeebe.command.v1.DeployResourceRequest': DeployResourceRequest,
   'io.zeebe.command.v1.DeployResourceResponse': DeployResourceResponse,
   'io.zeebe.command.v1.FailJobRequest': FailJobRequest,
@@ -60,4 +56,4 @@ export const ZeebeGatewayCommandJsonSchemaRegistry = {
   'io.zeebe.command.v1.ModifyProcessInstanceRequest': ModifyProcessInstanceRequest,
   'io.zeebe.command.v1.ModifyProcessInstanceResponse': ModifyProcessInstanceResponse,
 }
-export type ZeebeGatewayCommandTypes = 'io.zeebe.command.v1.ActivateJobsRequest' | 'io.zeebe.command.v1.ActivateJobsResponse' | 'io.zeebe.command.v1.CancelProcessInstanceRequest' | 'io.zeebe.command.v1.CancelProcessInstanceResponse' | 'io.zeebe.command.v1.CompleteJobRequest' | 'io.zeebe.command.v1.CompleteJobResponse' | 'io.zeebe.command.v1.CreateProcessInstanceRequest' | 'io.zeebe.command.v1.CreateProcessInstanceResponse' | 'io.zeebe.command.v1.CreateProcessInstanceWithResultRequest' | 'io.zeebe.command.v1.CreateProcessInstanceWithResultResponse' | 'io.zeebe.command.v1.DeployProcessRequest' | 'io.zeebe.command.v1.DeployProcessResponse' | 'io.zeebe.command.v1.DeployResourceRequest' | 'io.zeebe.command.v1.DeployResourceResponse' | 'io.zeebe.command.v1.FailJobRequest' | 'io.zeebe.command.v1.FailJobResponse' | 'io.zeebe.command.v1.ThrowErrorRequest' | 'io.zeebe.command.v1.ThrowErrorResponse' | 'io.zeebe.command.v1.PublishMessageRequest' | 'io.zeebe.command.v1.PublishMessageResponse' | 'io.zeebe.command.v1.ResolveIncidentRequest' | 'io.zeebe.command.v1.ResolveIncidentResponse' | 'io.zeebe.command.v1.TopologyRequest' | 'io.zeebe.command.v1.TopologyResponse' | 'io.zeebe.command.v1.UpdateJobRetriesRequest' | 'io.zeebe.command.v1.UpdateJobRetriesResponse' | 'io.zeebe.command.v1.SetVariablesRequest' | 'io.zeebe.command.v1.SetVariablesResponse' | 'io.zeebe.command.v1.ModifyProcessInstanceRequest' | 'io.zeebe.command.v1.ModifyProcessInstanceResponse';
+export type ZeebeGatewayCommandTypes = 'io.zeebe.command.v1.ActivateJobsRequest' | 'io.zeebe.command.v1.ActivateJobsResponse' | 'io.zeebe.command.v1.CancelProcessInstanceRequest' | 'io.zeebe.command.v1.CancelProcessInstanceResponse' | 'io.zeebe.command.v1.CompleteJobRequest' | 'io.zeebe.command.v1.CompleteJobResponse' | 'io.zeebe.command.v1.CreateProcessInstanceRequest' | 'io.zeebe.command.v1.CreateProcessInstanceResponse' | 'io.zeebe.command.v1.CreateProcessInstanceWithResultRequest' | 'io.zeebe.command.v1.CreateProcessInstanceWithResultResponse' | 'io.zeebe.command.v1.DeployResourceRequest' | 'io.zeebe.command.v1.DeployResourceResponse' | 'io.zeebe.command.v1.FailJobRequest' | 'io.zeebe.command.v1.FailJobResponse' | 'io.zeebe.command.v1.ThrowErrorRequest' | 'io.zeebe.command.v1.ThrowErrorResponse' | 'io.zeebe.command.v1.PublishMessageRequest' | 'io.zeebe.command.v1.PublishMessageResponse' | 'io.zeebe.command.v1.ResolveIncidentRequest' | 'io.zeebe.command.v1.ResolveIncidentResponse' | 'io.zeebe.command.v1.TopologyRequest' | 'io.zeebe.command.v1.TopologyResponse' | 'io.zeebe.command.v1.UpdateJobRetriesRequest' | 'io.zeebe.command.v1.UpdateJobRetriesResponse' | 'io.zeebe.command.v1.SetVariablesRequest' | 'io.zeebe.command.v1.SetVariablesResponse' | 'io.zeebe.command.v1.ModifyProcessInstanceRequest' | 'io.zeebe.command.v1.ModifyProcessInstanceResponse';
