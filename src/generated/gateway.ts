@@ -192,7 +192,7 @@ export interface ProcessRequestObject {
   /** the resource basename, e.g. myProcess.bpmn */
   name: string;
   /** the process definition as a UTF8-encoded string */
-  definition: Uint8Array;
+  definition: Buffer;
 }
 
 /** @deprecated */
@@ -212,7 +212,7 @@ export interface Resource {
   /** the resource name, e.g. myProcess.bpmn or myDecision.dmn */
   name: string;
   /** the file content as a UTF8-encoded string */
-  content: Uint8Array;
+  content: Buffer;
 }
 
 export interface DeployResourceResponse {

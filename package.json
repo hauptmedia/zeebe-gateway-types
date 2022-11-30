@@ -39,7 +39,7 @@
   "scripts": {
     "build": "run-s clean build:types build:esm build:cjs build:doc build:copyfiles",
     "build:copyfiles": "shx cp package.cjs.json dist/cjs/package.json && shx cp package.esm.json dist/esm/package.json",
-    "build:types": "protoc --proto_path=proto --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=src/generated --ts_proto_opt=outputEncodeMethods=false,outputJsonMethods=false,outputClientImpl=false,outputServices=false proto/gateway.proto",
+    "build:types": "protoc --proto_path=proto --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=src/generated --ts_proto_opt=env=node,outputEncodeMethods=false,outputJsonMethods=false,outputClientImpl=false,outputServices=false proto/gateway.proto",
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:doc": "typedoc src/ --exclude **/*.spec.ts --target es2018 --mode file --out dist/docs",
@@ -50,6 +50,7 @@
     "fix:lint": "eslint src --ext .ts --fix"
   },
   "devDependencies": {
+    "@types/node": "^18.11.9",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",
     "ajv": "^8.11.2",
