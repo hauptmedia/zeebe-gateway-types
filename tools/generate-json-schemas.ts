@@ -50,7 +50,7 @@ exportFile += "}\n";
 
 
 exportFile += "export type ZeebeGatewayCommandTypes = ";
-exportFile += symbols.map(symbol => `'${symbol}'`).join(" | ")
+exportFile += symbols.map(symbol => `'io.zeebe.command.v1.${symbol}'`).join(" | ")
 exportFile += ";"
 
 writeFileSync(`src/generated/jsonschema.ts`, exportFile);
