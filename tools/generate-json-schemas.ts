@@ -8,6 +8,7 @@ const settings: TJS.PartialArgs = {
     },
     compilerOptions: TJS.CompilerOptions = {
         strictNullChecks: true,
+        esModuleInterop: true
     },
     basePath = "./src/generated";
 
@@ -19,7 +20,13 @@ const program = TJS.getProgramFromFiles(
 
 const generator = TJS.buildGenerator(program, settings);
 
-const blacklist = ["Http2ServerRequest", "Http2ServerResponse", "ServerResponse", "ClientRequest"];
+const blacklist = [
+    "GetChannelRequest", "GetChannelResponse", "GetServerRequest", "GetServerResponse", "GetServerSocketsRequest",
+    "GetServerSocketsResponse", "GetServersRequest", "GetServersResponse", "GetSocketRequest", "GetSocketResponse",
+    "GetSubchannelRequest", "GetSubchannelResponse", "GetTopChannelsRequest", "GetTopChannelsResponse",
+    "ServerStatusResponse", "ServerErrorResponse",
+    "Http2ServerRequest", "Http2ServerResponse", "ServerResponse", "ClientRequest"
+];
 const symbols = generator.getUserSymbols().filter(name => (name.endsWith("Request") || name.endsWith("Response")) && !blacklist.includes(name))
 
 // Write JSON Schema Files

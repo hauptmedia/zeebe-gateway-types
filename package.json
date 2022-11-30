@@ -39,7 +39,7 @@
   "scripts": {
     "build": "run-s clean build:types build:jsonschema build:esm build:cjs build:doc build:copyfiles",
     "build:copyfiles": "shx cp package.cjs.json dist/cjs/package.json && shx cp package.esm.json dist/esm/package.json",
-    "build:types": "protoc --proto_path=proto --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=src/generated --ts_proto_opt=env=node,outputEncodeMethods=false,outputJsonMethods=false,outputClientImpl=false,outputServices=false proto/gateway.proto",
+    "build:types": "protoc --proto_path=proto --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=src/generated --ts_proto_opt=outputServices=grpc-js,env=node,esModuleInterop=true proto/gateway.proto",
     "build:jsonschema": "ts-node tools/generate-json-schemas.ts",
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -67,5 +67,8 @@
     "typedoc": "^0.19.0",
     "typescript": "^4.9.3",
     "typescript-json-schema": "^0.55.0"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.7.3"
   }
 }
