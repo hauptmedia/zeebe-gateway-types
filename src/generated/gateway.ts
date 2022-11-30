@@ -4409,3 +4409,10 @@ if (_m0.util.Long !== Long) {
 function isSet(value: any): boolean {
   return value !== null && value !== undefined;
 }
+export interface Resource {
+    /**
+     * The content must be base64 encoded.
+     * @TJS-type string
+     */
+    content: Buffer;
+}

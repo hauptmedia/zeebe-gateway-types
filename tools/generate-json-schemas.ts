@@ -20,6 +20,10 @@ const program = TJS.getProgramFromFiles(
 
 const generator = TJS.buildGenerator(program, settings);
 
+const whitelist = [
+    "ServiceError"
+];
+
 const blacklist = [
     "GetChannelRequest", "GetChannelResponse", "GetServerRequest", "GetServerResponse", "GetServerSocketsRequest",
     "GetServerSocketsResponse", "GetServersRequest", "GetServersResponse", "GetSocketRequest", "GetSocketResponse",
@@ -30,7 +34,11 @@ const blacklist = [
     //deprecated
     "DeployProcessRequest", "DeployProcessResponse"
 ];
-const symbols = generator.getUserSymbols().filter(name => (name.endsWith("Request") || name.endsWith("Response")) && !blacklist.includes(name))
+
+const symbols = generator.getUserSymbols().filter(name =>
+    whitelist.includes(name) ||
+    ((name.endsWith("Request") || name.endsWith("Response")) && !blacklist.includes(name))
+)
 
 // Write JSON Schema Files
 symbols.forEach(symbol => {

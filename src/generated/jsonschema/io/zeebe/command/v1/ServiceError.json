@@ -1,0 +1,86 @@
+{
+  "description": "A type extending the built-in Error object with additional fields.",
+  "allOf": [
+    {
+      "$ref": "#/definitions/StatusObject"
+    },
+    {
+      "$ref": "#/definitions/Error"
+    }
+  ],
+  "definitions": {
+    "StatusObject": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "$ref": "#/definitions/Status"
+        },
+        "details": {
+          "type": "string"
+        },
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        }
+      }
+    },
+    "Status": {
+      "enum": [
+        0,
+        1,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "type": "number"
+    },
+    "Metadata": {
+      "description": "A class for storing metadata. Keys are normalized to lowercase ASCII.",
+      "type": "object",
+      "properties": {
+        "internalRepr": {
+          "$ref": "#/definitions/MetadataObject"
+        },
+        "options": {},
+        "_getCoreRepresentation": {}
+      }
+    },
+    "MetadataObject": {
+      "type": "object",
+      "properties": {
+        "size": {
+          "type": "number"
+        },
+        "__@toStringTag@23": {
+          "type": "string"
+        }
+      }
+    },
+    "Error": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "stack": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

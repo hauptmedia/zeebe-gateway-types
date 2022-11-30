@@ -18,14 +18,8 @@
           "type": "string"
         },
         "content": {
-          "description": "the file content as a UTF8-encoded string",
-          "type": "object",
-          "additionalProperties": false,
-          "patternProperties": {
-            "^[0-9]+$": {
-              "type": "number"
-            }
-          }
+          "description": "the file content as a UTF8-encoded string\nThe content must be base64 encoded.",
+          "type": "string"
         }
       }
     }
