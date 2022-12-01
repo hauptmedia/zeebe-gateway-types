@@ -84,6 +84,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="throwerrorrequest.html#errorcode" class="tsd-kind-icon">error<wbr>Code</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="throwerrorrequest.html#errormessage" class="tsd-kind-icon">error<wbr>Message</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="throwerrorrequest.html#jobkey" class="tsd-kind-icon">job<wbr>Key</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="throwerrorrequest.html#variables" class="tsd-kind-icon">variables</a></li>
 							</ul>
 						</section>
 					</div>
@@ -97,7 +98,7 @@
 					<div class="tsd-signature tsd-kind-icon">error<wbr>Code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/hauptmedia/zeebe-gateway-types/blob/255c10b/src/types/ThrowErrorRequest.ts#L5">types/ThrowErrorRequest.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/hauptmedia/zeebe-gateway-types/blob/d132205/src/generated/gateway.ts#L350">src/generated/gateway.ts:350</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -112,7 +113,7 @@
 					<div class="tsd-signature tsd-kind-icon">error<wbr>Message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/hauptmedia/zeebe-gateway-types/blob/255c10b/src/types/ThrowErrorRequest.ts#L7">types/ThrowErrorRequest.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/hauptmedia/zeebe-gateway-types/blob/d132205/src/generated/gateway.ts#L352">src/generated/gateway.ts:352</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -127,12 +128,31 @@
 					<div class="tsd-signature tsd-kind-icon">job<wbr>Key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/hauptmedia/zeebe-gateway-types/blob/255c10b/src/types/ThrowErrorRequest.ts#L3">types/ThrowErrorRequest.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/hauptmedia/zeebe-gateway-types/blob/d132205/src/generated/gateway.ts#L348">src/generated/gateway.ts:348</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>the unique job identifier, as obtained when activating the job</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="variables" class="tsd-anchor"></a>
+					<h3>variables</h3>
+					<div class="tsd-signature tsd-kind-icon">variables<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/hauptmedia/zeebe-gateway-types/blob/d132205/src/generated/gateway.ts#L360">src/generated/gateway.ts:360</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>JSON document that will instantiate the variables at the local scope of the
+								error catch event that catches the thrown error; it must be a JSON object, as variables will be mapped in a
+								key-value fashion. e.g. { &quot;a&quot;: 1, &quot;b&quot;: 2 } will create two variables, named &quot;a&quot; and
+								&quot;b&quot; respectively, with their associated values. [{ &quot;a&quot;: 1, &quot;b&quot;: 2 }] would not be a
+							valid argument, as the root of the JSON document is an array and not an object.</p>
 						</div>
 					</div>
 				</section>
@@ -148,90 +168,6 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum">
-						<a href="../enums/partitionbrokerhealth.html" class="tsd-kind-icon">Partition<wbr>Broker<wbr>Health</a>
-					</li>
-					<li class=" tsd-kind-enum">
-						<a href="../enums/partitionbrokerrole.html" class="tsd-kind-icon">Partition<wbr>Broker<wbr>Role</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="activatejobsrequest.html" class="tsd-kind-icon">Activate<wbr>Jobs<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="activatejobsresponse.html" class="tsd-kind-icon">Activate<wbr>Jobs<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="activatedjob.html" class="tsd-kind-icon">Activated<wbr>Job</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="brokerinfo.html" class="tsd-kind-icon">Broker<wbr>Info</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="cancelprocessinstancerequest.html" class="tsd-kind-icon">Cancel<wbr>Process<wbr>Instance<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="cancelprocessinstanceresponse.html" class="tsd-kind-icon">Cancel<wbr>Process<wbr>Instance<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="completejobrequest.html" class="tsd-kind-icon">Complete<wbr>Job<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="completejobresponse.html" class="tsd-kind-icon">Complete<wbr>Job<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="createprocessinstancerequest.html" class="tsd-kind-icon">Create<wbr>Process<wbr>Instance<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="createprocessinstanceresponse.html" class="tsd-kind-icon">Create<wbr>Process<wbr>Instance<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="createprocessinstancewithresultrequest.html" class="tsd-kind-icon">Create<wbr>Process<wbr>Instance<wbr>With<wbr>Result<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="createprocessinstancewithresultresponse.html" class="tsd-kind-icon">Create<wbr>Process<wbr>Instance<wbr>With<wbr>Result<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="decisionmetadata.html" class="tsd-kind-icon">Decision<wbr>Metadata</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="decisionrequirementsmetadata.html" class="tsd-kind-icon">Decision<wbr>Requirements<wbr>Metadata</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="deployresourcerequest.html" class="tsd-kind-icon">Deploy<wbr>Resource<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="deployresourceresponse.html" class="tsd-kind-icon">Deploy<wbr>Resource<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="deployment.html" class="tsd-kind-icon">Deployment</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="failjobrequest.html" class="tsd-kind-icon">Fail<wbr>Job<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="failjobresponse.html" class="tsd-kind-icon">Fail<wbr>Job<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="partition.html" class="tsd-kind-icon">Partition</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="processmetadata.html" class="tsd-kind-icon">Process<wbr>Metadata</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="publishmessagerequest.html" class="tsd-kind-icon">Publish<wbr>Message<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="publishmessageresponse.html" class="tsd-kind-icon">Publish<wbr>Message<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="resolveincidentrequest.html" class="tsd-kind-icon">Resolve<wbr>Incident<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="resolveincidentresponse.html" class="tsd-kind-icon">Resolve<wbr>Incident<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="resource.html" class="tsd-kind-icon">Resource</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
@@ -246,25 +182,13 @@
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="throwerrorrequest.html#jobkey" class="tsd-kind-icon">job<wbr>Key</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="throwerrorrequest.html#variables" class="tsd-kind-icon">variables</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface">
-						<a href="throwerrorresponse.html" class="tsd-kind-icon">Throw<wbr>Error<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="topologyrequest.html" class="tsd-kind-icon">Topology<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="topologyresponse.html" class="tsd-kind-icon">Topology<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="../globals.html#zeebegatewaycommandtypes" class="tsd-kind-icon">Zeebe<wbr>Gateway<wbr>Command<wbr>Types</a>
-					</li>
-					<li class=" tsd-kind-object-literal">
-						<a href="../globals.html#zeebegatewaycommandjsonschemaregistry" class="tsd-kind-icon">Zeebe<wbr>Gateway<wbr>Command<wbr>Json<wbr>Schema<wbr>Registry</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
@@ -276,6 +200,7 @@
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 		</div>
 	</div>

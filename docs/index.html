@@ -64,6 +64,49 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
+				<a href="#zeebe-grpc-gateway-protocol-client-typescript-types-amp-json-schemas" id="zeebe-grpc-gateway-protocol-client-typescript-types-amp-json-schemas" style="color: inherit; text-decoration: none;">
+					<h1>Zeebe gRPC Gateway Protocol Client, Typescript Types &amp; JSON Schemas</h1>
+				</a>
+				<p><img src="https://img.shields.io/badge/Compatible%20with-Camunda%20Platform%208-0072Ce" alt="Compatible with: Camunda Platform 8"></p>
+				<p>Follow this link for the <a href="https://docs.camunda.io/docs/apis-clients/grpc/">Zeebe gRPC Gateway Protocol Documentation</a>.</p>
+				<p>This library provides:</p>
+				<ul>
+					<li><p>a ready to use <a href="https://www.npmjs.com/package/@grpc/grpc-js">grpc-js client</a> for the Zeebe Gateway Protocol</p>
+					</li>
+					<li><p>Typescript type definitions for requests and responses including JSON transformers</p>
+					</li>
+					<li><p><a href="https://json-schema.org/">JSON Schemas</a> for all requests and responses objects</p>
+					</li>
+				</ul>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<pre><code class="language-shell">npm i --save @hauptmedia/zeebe-gateway-types
+</code></pre>
+				<a href="#usage-for-the-grpc-js-client" id="usage-for-the-grpc-js-client" style="color: inherit; text-decoration: none;">
+					<h2>Usage for the grpc-js client</h2>
+				</a>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {GatewayClient, DeployResourceRequest} <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@hauptmedia/zeebe-gateway-types&quot;</span>;
+<span class="hljs-keyword">import</span> {ChannelCredentials} <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@grpc/grpc-js&quot;</span>;
+
+<span class="hljs-keyword">const</span> zbc = <span class="hljs-keyword">new</span> GatewayClient(<span class="hljs-string">&quot;localhost:26500&quot;</span>, ChannelCredentials.createInsecure());
+
+<span class="hljs-keyword">const</span> req = DeployResourceRequest.fromJSON({
+    <span class="hljs-string">&quot;resources&quot;</span>: [
+        {
+            <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;test.bpmn&quot;</span>,
+            <span class="hljs-string">&quot;content&quot;</span>: <span class="hljs-string">&quot;PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPGJwbW46ZGVmaW5pdGlvbnMgeG1sbnM6YnBtbj0iaHR0cDovL3d3dy5vbWcub3JnL3NwZWMvQlBNTi8yMDEwMDUyNC9NT0RFTCIgeG1sbnM6YnBtbmRpPSJodHRwOi8vd3d3Lm9tZy5vcmcvc3BlYy9CUE1OLzIwMTAwNTI0L0RJIiB4bWxuczpkYz0iaHR0cDovL3d3dy5vbWcub3JnL3NwZWMvREQvMjAxMDA1MjQvREMiIHhtbG5zOmRpPSJodHRwOi8vd3d3Lm9tZy5vcmcvc3BlYy9ERC8yMDEwMDUyNC9ESSIgeG1sbnM6bW9kZWxlcj0iaHR0cDovL2NhbXVuZGEub3JnL3NjaGVtYS9tb2RlbGVyLzEuMCIgaWQ9IkRlZmluaXRpb25zXzF3cXR5eWkiIHRhcmdldE5hbWVzcGFjZT0iaHR0cDovL2JwbW4uaW8vc2NoZW1hL2JwbW4iIGV4cG9ydGVyPSJDYW11bmRhIE1vZGVsZXIiIGV4cG9ydGVyVmVyc2lvbj0iNS40LjEiIG1vZGVsZXI6ZXhlY3V0aW9uUGxhdGZvcm09IkNhbXVuZGEgQ2xvdWQiIG1vZGVsZXI6ZXhlY3V0aW9uUGxhdGZvcm1WZXJzaW9uPSI4LjEuMCI+CjxicG1uOnByb2Nlc3MgaWQ9IlByb2Nlc3NfMTF6bG5lZyIgaXNFeGVjdXRhYmxlPSJ0cnVlIj4KPGJwbW46c3RhcnRFdmVudCBpZD0iU3RhcnRFdmVudF8xIj4KPGJwbW46b3V0Z29pbmc+Rmxvd18wanQ4bHUzPC9icG1uOm91dGdvaW5nPgo8L2JwbW46c3RhcnRFdmVudD4KPGJwbW46ZW5kRXZlbnQgaWQ9IkV2ZW50XzE3anp2eGwiPgo8YnBtbjppbmNvbWluZz5GbG93XzBqdDhsdTM8L2JwbW46aW5jb21pbmc+CjwvYnBtbjplbmRFdmVudD4KPGJwbW46c2VxdWVuY2VGbG93IGlkPSJGbG93XzBqdDhsdTMiIHNvdXJjZVJlZj0iU3RhcnRFdmVudF8xIiB0YXJnZXRSZWY9IkV2ZW50XzE3anp2eGwiIC8+CjwvYnBtbjpwcm9jZXNzPgo8YnBtbmRpOkJQTU5EaWFncmFtIGlkPSJCUE1ORGlhZ3JhbV8xIj4KPGJwbW5kaTpCUE1OUGxhbmUgaWQ9IkJQTU5QbGFuZV8xIiBicG1uRWxlbWVudD0iUHJvY2Vzc18xMXpsbmVnIj4KPGJwbW5kaTpCUE1OU2hhcGUgaWQ9Il9CUE1OU2hhcGVfU3RhcnRFdmVudF8yIiBicG1uRWxlbWVudD0iU3RhcnRFdmVudF8xIj4KPGRjOkJvdW5kcyB4PSIxNzkiIHk9Ijc5IiB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIC8+CjwvYnBtbmRpOkJQTU5TaGFwZT4KPGJwbW5kaTpCUE1OU2hhcGUgaWQ9IkV2ZW50XzE3anp2eGxfZGkiIGJwbW5FbGVtZW50PSJFdmVudF8xN2p6dnhsIj4KPGRjOkJvdW5kcyB4PSIyOTIiIHk9Ijc5IiB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIC8+CjwvYnBtbmRpOkJQTU5TaGFwZT4KPGJwbW5kaTpCUE1ORWRnZSBpZD0iRmxvd18wanQ4bHUzX2RpIiBicG1uRWxlbWVudD0iRmxvd18wanQ4bHUzIj4KPGRpOndheXBvaW50IHg9IjIxNSIgeT0iOTciIC8+CjxkaTp3YXlwb2ludCB4PSIyOTIiIHk9Ijk3IiAvPgo8L2JwbW5kaTpCUE1ORWRnZT4KPC9icG1uZGk6QlBNTlBsYW5lPgo8L2JwbW5kaTpCUE1ORGlhZ3JhbT4KPC9icG1uOmRlZmluaXRpb25zPg==&quot;</span>
+        }
+    ]
+});
+
+zbc.deployResource(req, <span class="hljs-function">(<span class="hljs-params">error, response</span>) =&gt;</span> {
+    <span class="hljs-keyword">if</span> (error)
+        <span class="hljs-keyword">throw</span> error;
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-built_in">console</span>.log(response);
+});
+</code></pre>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -77,10 +120,10 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum">
-						<a href="enums/partitionbrokerhealth.html" class="tsd-kind-icon">Partition<wbr>Broker<wbr>Health</a>
+						<a href="enums/partition_partitionbrokerhealth.html" class="tsd-kind-icon">Partition_<wbr><wbr>Partition<wbr>Broker<wbr>Health</a>
 					</li>
 					<li class=" tsd-kind-enum">
-						<a href="enums/partitionbrokerrole.html" class="tsd-kind-icon">Partition<wbr>Broker<wbr>Role</a>
+						<a href="enums/partition_partitionbrokerrole.html" class="tsd-kind-icon">Partition_<wbr><wbr>Partition<wbr>Broker<wbr>Role</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/activatejobsrequest.html" class="tsd-kind-icon">Activate<wbr>Jobs<wbr>Request</a>
@@ -125,6 +168,12 @@
 						<a href="interfaces/decisionrequirementsmetadata.html" class="tsd-kind-icon">Decision<wbr>Requirements<wbr>Metadata</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/deployprocessrequest.html" class="tsd-kind-icon">Deploy<wbr>Process<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/deployprocessresponse.html" class="tsd-kind-icon">Deploy<wbr>Process<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/deployresourcerequest.html" class="tsd-kind-icon">Deploy<wbr>Resource<wbr>Request</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -140,10 +189,37 @@
 						<a href="interfaces/failjobresponse.html" class="tsd-kind-icon">Fail<wbr>Job<wbr>Response</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/gatewayclient.html" class="tsd-kind-icon">Gateway<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/gatewayserver.html" class="tsd-kind-icon">Gateway<wbr>Server</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/modifyprocessinstancerequest.html" class="tsd-kind-icon">Modify<wbr>Process<wbr>Instance<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/modifyprocessinstancerequest_activateinstruction.html" class="tsd-kind-icon">Modify<wbr>Process<wbr>Instance<wbr>Request_<wbr><wbr>Activate<wbr>Instruction</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/modifyprocessinstancerequest_terminateinstruction.html" class="tsd-kind-icon">Modify<wbr>Process<wbr>Instance<wbr>Request_<wbr><wbr>Terminate<wbr>Instruction</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/modifyprocessinstancerequest_variableinstruction.html" class="tsd-kind-icon">Modify<wbr>Process<wbr>Instance<wbr>Request_<wbr><wbr>Variable<wbr>Instruction</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/modifyprocessinstanceresponse.html" class="tsd-kind-icon">Modify<wbr>Process<wbr>Instance<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/partition.html" class="tsd-kind-icon">Partition</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/processinstancecreationstartinstruction.html" class="tsd-kind-icon">Process<wbr>Instance<wbr>Creation<wbr>Start<wbr>Instruction</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/processmetadata.html" class="tsd-kind-icon">Process<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/processrequestobject.html" class="tsd-kind-icon">Process<wbr>Request<wbr>Object</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/publishmessagerequest.html" class="tsd-kind-icon">Publish<wbr>Message<wbr>Request</a>
@@ -161,6 +237,12 @@
 						<a href="interfaces/resource.html" class="tsd-kind-icon">Resource</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/setvariablesrequest.html" class="tsd-kind-icon">Set<wbr>Variables<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/setvariablesresponse.html" class="tsd-kind-icon">Set<wbr>Variables<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/throwerrorrequest.html" class="tsd-kind-icon">Throw<wbr>Error<wbr>Request</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -172,8 +254,338 @@
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/topologyresponse.html" class="tsd-kind-icon">Topology<wbr>Response</a>
 					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/updatejobretriesrequest.html" class="tsd-kind-icon">Update<wbr>Job<wbr>Retries<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/updatejobretriesresponse.html" class="tsd-kind-icon">Update<wbr>Job<wbr>Retries<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#builtin" class="tsd-kind-icon">Builtin</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#deeppartial" class="tsd-kind-icon">Deep<wbr>Partial</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#exact" class="tsd-kind-icon">Exact</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#gatewayservice" class="tsd-kind-icon">Gateway<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#keysofunion" class="tsd-kind-icon">Keys<wbr>OfUnion</a>
+					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="globals.html#zeebegatewaycommandtypes" class="tsd-kind-icon">Zeebe<wbr>Gateway<wbr>Command<wbr>Types</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#gatewayclient" class="tsd-kind-icon">Gateway<wbr>Client</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#gatewayservice" class="tsd-kind-icon">Gateway<wbr>Service</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#global" class="tsd-kind-icon">global</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#globalthis" class="tsd-kind-icon">global<wbr>This</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#protobufpackage" class="tsd-kind-icon">protobuf<wbr>Package</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#self" class="tsd-kind-icon">self</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#window" class="tsd-kind-icon">window</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#base64frombytes" class="tsd-kind-icon">base64<wbr>From<wbr>Bytes</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#bytesfrombase64" class="tsd-kind-icon">bytes<wbr>From<wbr>Base64</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbaseactivatejobsrequest" class="tsd-kind-icon">create<wbr>Base<wbr>Activate<wbr>Jobs<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbaseactivatejobsresponse" class="tsd-kind-icon">create<wbr>Base<wbr>Activate<wbr>Jobs<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbaseactivatedjob" class="tsd-kind-icon">create<wbr>Base<wbr>Activated<wbr>Job</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasebrokerinfo" class="tsd-kind-icon">create<wbr>Base<wbr>Broker<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasecancelprocessinstancerequest" class="tsd-kind-icon">create<wbr>Base<wbr>Cancel<wbr>Process<wbr>Instance<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasecancelprocessinstanceresponse" class="tsd-kind-icon">create<wbr>Base<wbr>Cancel<wbr>Process<wbr>Instance<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasecompletejobrequest" class="tsd-kind-icon">create<wbr>Base<wbr>Complete<wbr>Job<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasecompletejobresponse" class="tsd-kind-icon">create<wbr>Base<wbr>Complete<wbr>Job<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasecreateprocessinstancerequest" class="tsd-kind-icon">create<wbr>Base<wbr>Create<wbr>Process<wbr>Instance<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasecreateprocessinstanceresponse" class="tsd-kind-icon">create<wbr>Base<wbr>Create<wbr>Process<wbr>Instance<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasecreateprocessinstancewithresultrequest" class="tsd-kind-icon">create<wbr>Base<wbr>Create<wbr>Process<wbr>Instance<wbr>With<wbr>Result<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasecreateprocessinstancewithresultresponse" class="tsd-kind-icon">create<wbr>Base<wbr>Create<wbr>Process<wbr>Instance<wbr>With<wbr>Result<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasedecisionmetadata" class="tsd-kind-icon">create<wbr>Base<wbr>Decision<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasedecisionrequirementsmetadata" class="tsd-kind-icon">create<wbr>Base<wbr>Decision<wbr>Requirements<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasedeployprocessrequest" class="tsd-kind-icon">create<wbr>Base<wbr>Deploy<wbr>Process<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasedeployprocessresponse" class="tsd-kind-icon">create<wbr>Base<wbr>Deploy<wbr>Process<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasedeployresourcerequest" class="tsd-kind-icon">create<wbr>Base<wbr>Deploy<wbr>Resource<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasedeployresourceresponse" class="tsd-kind-icon">create<wbr>Base<wbr>Deploy<wbr>Resource<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasedeployment" class="tsd-kind-icon">create<wbr>Base<wbr>Deployment</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasefailjobrequest" class="tsd-kind-icon">create<wbr>Base<wbr>Fail<wbr>Job<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasefailjobresponse" class="tsd-kind-icon">create<wbr>Base<wbr>Fail<wbr>Job<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasemodifyprocessinstancerequest" class="tsd-kind-icon">create<wbr>Base<wbr>Modify<wbr>Process<wbr>Instance<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasemodifyprocessinstancerequest_activateinstruction" class="tsd-kind-icon">create<wbr>Base<wbr>Modify<wbr>Process<wbr>Instance<wbr>Request_<wbr><wbr>Activate<wbr>Instruction</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasemodifyprocessinstancerequest_terminateinstruction" class="tsd-kind-icon">create<wbr>Base<wbr>Modify<wbr>Process<wbr>Instance<wbr>Request_<wbr><wbr>Terminate<wbr>Instruction</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasemodifyprocessinstancerequest_variableinstruction" class="tsd-kind-icon">create<wbr>Base<wbr>Modify<wbr>Process<wbr>Instance<wbr>Request_<wbr><wbr>Variable<wbr>Instruction</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasemodifyprocessinstanceresponse" class="tsd-kind-icon">create<wbr>Base<wbr>Modify<wbr>Process<wbr>Instance<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasepartition" class="tsd-kind-icon">create<wbr>Base<wbr>Partition</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbaseprocessinstancecreationstartinstruction" class="tsd-kind-icon">create<wbr>Base<wbr>Process<wbr>Instance<wbr>Creation<wbr>Start<wbr>Instruction</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbaseprocessmetadata" class="tsd-kind-icon">create<wbr>Base<wbr>Process<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbaseprocessrequestobject" class="tsd-kind-icon">create<wbr>Base<wbr>Process<wbr>Request<wbr>Object</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasepublishmessagerequest" class="tsd-kind-icon">create<wbr>Base<wbr>Publish<wbr>Message<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasepublishmessageresponse" class="tsd-kind-icon">create<wbr>Base<wbr>Publish<wbr>Message<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbaseresolveincidentrequest" class="tsd-kind-icon">create<wbr>Base<wbr>Resolve<wbr>Incident<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbaseresolveincidentresponse" class="tsd-kind-icon">create<wbr>Base<wbr>Resolve<wbr>Incident<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbaseresource" class="tsd-kind-icon">create<wbr>Base<wbr>Resource</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasesetvariablesrequest" class="tsd-kind-icon">create<wbr>Base<wbr>Set<wbr>Variables<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasesetvariablesresponse" class="tsd-kind-icon">create<wbr>Base<wbr>Set<wbr>Variables<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasethrowerrorrequest" class="tsd-kind-icon">create<wbr>Base<wbr>Throw<wbr>Error<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasethrowerrorresponse" class="tsd-kind-icon">create<wbr>Base<wbr>Throw<wbr>Error<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasetopologyrequest" class="tsd-kind-icon">create<wbr>Base<wbr>Topology<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbasetopologyresponse" class="tsd-kind-icon">create<wbr>Base<wbr>Topology<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbaseupdatejobretriesrequest" class="tsd-kind-icon">create<wbr>Base<wbr>Update<wbr>Job<wbr>Retries<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbaseupdatejobretriesresponse" class="tsd-kind-icon">create<wbr>Base<wbr>Update<wbr>Job<wbr>Retries<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isset" class="tsd-kind-icon">is<wbr>Set</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#longtonumber" class="tsd-kind-icon">long<wbr>ToNumber</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#partition_partitionbrokerhealthfromjson" class="tsd-kind-icon">partition_<wbr><wbr>Partition<wbr>Broker<wbr>Health<wbr>FromJSON</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#partition_partitionbrokerhealthtojson" class="tsd-kind-icon">partition_<wbr><wbr>Partition<wbr>Broker<wbr>Health<wbr>ToJSON</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#partition_partitionbrokerhealthtonumber" class="tsd-kind-icon">partition_<wbr><wbr>Partition<wbr>Broker<wbr>Health<wbr>ToNumber</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#partition_partitionbrokerrolefromjson" class="tsd-kind-icon">partition_<wbr><wbr>Partition<wbr>Broker<wbr>Role<wbr>FromJSON</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#partition_partitionbrokerroletojson" class="tsd-kind-icon">partition_<wbr><wbr>Partition<wbr>Broker<wbr>Role<wbr>ToJSON</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#partition_partitionbrokerroletonumber" class="tsd-kind-icon">partition_<wbr><wbr>Partition<wbr>Broker<wbr>Role<wbr>ToNumber</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#activatejobsrequest" class="tsd-kind-icon">Activate<wbr>Jobs<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#activatejobsresponse" class="tsd-kind-icon">Activate<wbr>Jobs<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#activatedjob" class="tsd-kind-icon">Activated<wbr>Job</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#brokerinfo" class="tsd-kind-icon">Broker<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#cancelprocessinstancerequest" class="tsd-kind-icon">Cancel<wbr>Process<wbr>Instance<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#cancelprocessinstanceresponse" class="tsd-kind-icon">Cancel<wbr>Process<wbr>Instance<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#completejobrequest" class="tsd-kind-icon">Complete<wbr>Job<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#completejobresponse" class="tsd-kind-icon">Complete<wbr>Job<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#createprocessinstancerequest" class="tsd-kind-icon">Create<wbr>Process<wbr>Instance<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#createprocessinstanceresponse" class="tsd-kind-icon">Create<wbr>Process<wbr>Instance<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#createprocessinstancewithresultrequest" class="tsd-kind-icon">Create<wbr>Process<wbr>Instance<wbr>With<wbr>Result<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#createprocessinstancewithresultresponse" class="tsd-kind-icon">Create<wbr>Process<wbr>Instance<wbr>With<wbr>Result<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#decisionmetadata" class="tsd-kind-icon">Decision<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#decisionrequirementsmetadata" class="tsd-kind-icon">Decision<wbr>Requirements<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#deployprocessrequest" class="tsd-kind-icon">Deploy<wbr>Process<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#deployprocessresponse" class="tsd-kind-icon">Deploy<wbr>Process<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#deployresourcerequest" class="tsd-kind-icon">Deploy<wbr>Resource<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#deployresourceresponse" class="tsd-kind-icon">Deploy<wbr>Resource<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#deployment" class="tsd-kind-icon">Deployment</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#failjobrequest" class="tsd-kind-icon">Fail<wbr>Job<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#failjobresponse" class="tsd-kind-icon">Fail<wbr>Job<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#modifyprocessinstancerequest" class="tsd-kind-icon">Modify<wbr>Process<wbr>Instance<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#modifyprocessinstancerequest_activateinstruction" class="tsd-kind-icon">Modify<wbr>Process<wbr>Instance<wbr>Request_<wbr><wbr>Activate<wbr>Instruction</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#modifyprocessinstancerequest_terminateinstruction" class="tsd-kind-icon">Modify<wbr>Process<wbr>Instance<wbr>Request_<wbr><wbr>Terminate<wbr>Instruction</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#modifyprocessinstancerequest_variableinstruction" class="tsd-kind-icon">Modify<wbr>Process<wbr>Instance<wbr>Request_<wbr><wbr>Variable<wbr>Instruction</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#modifyprocessinstanceresponse" class="tsd-kind-icon">Modify<wbr>Process<wbr>Instance<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#partition" class="tsd-kind-icon">Partition</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#processinstancecreationstartinstruction" class="tsd-kind-icon">Process<wbr>Instance<wbr>Creation<wbr>Start<wbr>Instruction</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#processmetadata" class="tsd-kind-icon">Process<wbr>Metadata</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#processrequestobject" class="tsd-kind-icon">Process<wbr>Request<wbr>Object</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#publishmessagerequest" class="tsd-kind-icon">Publish<wbr>Message<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#publishmessageresponse" class="tsd-kind-icon">Publish<wbr>Message<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#resolveincidentrequest" class="tsd-kind-icon">Resolve<wbr>Incident<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#resolveincidentresponse" class="tsd-kind-icon">Resolve<wbr>Incident<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#resource" class="tsd-kind-icon">Resource</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#setvariablesrequest" class="tsd-kind-icon">Set<wbr>Variables<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#setvariablesresponse" class="tsd-kind-icon">Set<wbr>Variables<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#throwerrorrequest" class="tsd-kind-icon">Throw<wbr>Error<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#throwerrorresponse" class="tsd-kind-icon">Throw<wbr>Error<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#topologyrequest" class="tsd-kind-icon">Topology<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#topologyresponse" class="tsd-kind-icon">Topology<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#updatejobretriesrequest" class="tsd-kind-icon">Update<wbr>Job<wbr>Retries<wbr>Request</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#updatejobretriesresponse" class="tsd-kind-icon">Update<wbr>Job<wbr>Retries<wbr>Response</a>
 					</li>
 					<li class=" tsd-kind-object-literal">
 						<a href="globals.html#zeebegatewaycommandjsonschemaregistry" class="tsd-kind-icon">Zeebe<wbr>Gateway<wbr>Command<wbr>Json<wbr>Schema<wbr>Registry</a>
@@ -189,6 +601,7 @@
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 		</div>
 	</div>

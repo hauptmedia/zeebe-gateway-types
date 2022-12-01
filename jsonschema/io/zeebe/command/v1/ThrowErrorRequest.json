@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "properties": {
+    "jobKey": {
+      "description": "the unique job identifier, as obtained when activating the job",
+      "type": "number"
+    },
+    "errorCode": {
+      "description": "the error code that will be matched with an error catch event",
+      "type": "string"
+    },
+    "errorMessage": {
+      "description": "an optional error message that provides additional context",
+      "type": "string"
+    },
+    "variables": {
+      "description": "JSON document that will instantiate the variables at the local scope of the\nerror catch event that catches the thrown error; it must be a JSON object, as variables will be mapped in a\nkey-value fashion. e.g. { \"a\": 1, \"b\": 2 } will create two variables, named \"a\" and\n\"b\" respectively, with their associated values. [{ \"a\": 1, \"b\": 2 }] would not be a\nvalid argument, as the root of the JSON document is an array and not an object.",
+      "type": "string"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
