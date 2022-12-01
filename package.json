@@ -1,6 +1,6 @@
 {
   "name": "@hauptmedia/zeebe-gateway-types",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Type definitions for the Zeebe Workflow Automation Engine Gateway Service.",
   "author": {
     "name": "Julian Haupt",
