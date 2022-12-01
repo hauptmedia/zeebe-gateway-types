@@ -1,5 +1,6 @@
-Zeebe gRPC Gateway Protocol, Typescript Types & JSON Schemas
-============================================================
+Zeebe gRPC Gateway Protocol Client, Typescript Types & JSON Schemas
+===================================================================
+
 ![Compatible with: Camunda Platform 8](https://img.shields.io/badge/Compatible%20with-Camunda%20Platform%208-0072Ce)
 
 Follow this link for the [Zeebe gRPC Gateway Protocol Documentation](https://docs.camunda.io/docs/apis-clients/grpc/).
