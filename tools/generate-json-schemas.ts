@@ -43,25 +43,22 @@ const symbols = generator.getUserSymbols().filter(name =>
 // Write JSON Schema Files
 symbols.forEach(symbol => {
     let schema = generator.getSchemaForSymbol(symbol);
-    writeFileSync(`src/generated/jsonschema/io/zeebe/command/v1/${symbol}.json`, JSON.stringify(schema, null, 2));
+    writeFileSync(`src/generated/jsonschema/${symbol}.json`, JSON.stringify(schema, null, 2));
 });
 
 
 let exportFile = "";
 
 symbols.forEach(symbol => {
-    exportFile += `import * as ${symbol} from './jsonschema/io/zeebe/command/v1/${symbol}.json'\n`;
+    exportFile += `import * as ${symbol} from './jsonschema/${symbol}.json'\n`;
 });
 
-exportFile += "export const ZeebeGatewayCommandJsonSchemaRegistry = {\n";
+exportFile += "export const JsonSchemaRegistry = {\n";
 symbols.forEach(symbol => {
-    exportFile += "  'io.zeebe.command.v1." + symbol + "': " + symbol + ",\n";
+    exportFile += "  '" + symbol + "': " + symbol + ",\n";
 });
 exportFile += "}\n";
 
-
-exportFile += "export type ZeebeGatewayCommandTypes = ";
-exportFile += symbols.map(symbol => `'io.zeebe.command.v1.${symbol}'`).join(" | ")
-exportFile += ";"
+exportFile += "export type JsonSchemaRegistryTypes = keyof typeof JsonSchemaRegistry\n";
 
 writeFileSync(`src/generated/jsonschema.ts`, exportFile);
