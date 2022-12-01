@@ -435,10 +435,10 @@ export interface Partition {
 
 /** Describes the Raft role of the broker for a given partition */
 export enum Partition_PartitionBrokerRole {
-  LEADER = 0,
-  FOLLOWER = 1,
-  INACTIVE = 2,
-  UNRECOGNIZED = -1,
+  LEADER = "LEADER",
+  FOLLOWER = "FOLLOWER",
+  INACTIVE = "INACTIVE",
+  UNRECOGNIZED = "UNRECOGNIZED",
 }
 
 export function partition_PartitionBrokerRoleFromJSON(object: any): Partition_PartitionBrokerRole {
@@ -473,12 +473,26 @@ export function partition_PartitionBrokerRoleToJSON(object: Partition_PartitionB
   }
 }
 
+export function partition_PartitionBrokerRoleToNumber(object: Partition_PartitionBrokerRole): number {
+  switch (object) {
+    case Partition_PartitionBrokerRole.LEADER:
+      return 0;
+    case Partition_PartitionBrokerRole.FOLLOWER:
+      return 1;
+    case Partition_PartitionBrokerRole.INACTIVE:
+      return 2;
+    case Partition_PartitionBrokerRole.UNRECOGNIZED:
+    default:
+      return -1;
+  }
+}
+
 /** Describes the current health of the partition */
 export enum Partition_PartitionBrokerHealth {
-  HEALTHY = 0,
-  UNHEALTHY = 1,
-  DEAD = 2,
-  UNRECOGNIZED = -1,
+  HEALTHY = "HEALTHY",
+  UNHEALTHY = "UNHEALTHY",
+  DEAD = "DEAD",
+  UNRECOGNIZED = "UNRECOGNIZED",
 }
 
 export function partition_PartitionBrokerHealthFromJSON(object: any): Partition_PartitionBrokerHealth {
@@ -510,6 +524,20 @@ export function partition_PartitionBrokerHealthToJSON(object: Partition_Partitio
     case Partition_PartitionBrokerHealth.UNRECOGNIZED:
     default:
       return "UNRECOGNIZED";
+  }
+}
+
+export function partition_PartitionBrokerHealthToNumber(object: Partition_PartitionBrokerHealth): number {
+  switch (object) {
+    case Partition_PartitionBrokerHealth.HEALTHY:
+      return 0;
+    case Partition_PartitionBrokerHealth.UNHEALTHY:
+      return 1;
+    case Partition_PartitionBrokerHealth.DEAD:
+      return 2;
+    case Partition_PartitionBrokerHealth.UNRECOGNIZED:
+    default:
+      return -1;
   }
 }
 
@@ -2872,7 +2900,11 @@ export const BrokerInfo = {
 };
 
 function createBasePartition(): Partition {
-  return { partitionId: 0, role: 0, health: 0 };
+  return {
+    partitionId: 0,
+    role: Partition_PartitionBrokerRole.LEADER,
+    health: Partition_PartitionBrokerHealth.HEALTHY,
+  };
 }
 
 export const Partition = {
@@ -2880,11 +2912,11 @@ export const Partition = {
     if (message.partitionId !== 0) {
       writer.uint32(8).int32(message.partitionId);
     }
-    if (message.role !== 0) {
-      writer.uint32(16).int32(message.role);
+    if (message.role !== Partition_PartitionBrokerRole.LEADER) {
+      writer.uint32(16).int32(partition_PartitionBrokerRoleToNumber(message.role));
     }
-    if (message.health !== 0) {
-      writer.uint32(24).int32(message.health);
+    if (message.health !== Partition_PartitionBrokerHealth.HEALTHY) {
+      writer.uint32(24).int32(partition_PartitionBrokerHealthToNumber(message.health));
     }
     return writer;
   },
@@ -2900,10 +2932,10 @@ export const Partition = {
           message.partitionId = reader.int32();
           break;
         case 2:
-          message.role = reader.int32() as any;
+          message.role = partition_PartitionBrokerRoleFromJSON(reader.int32());
           break;
         case 3:
-          message.health = reader.int32() as any;
+          message.health = partition_PartitionBrokerHealthFromJSON(reader.int32());
           break;
         default:
           reader.skipType(tag & 7);
@@ -2916,8 +2948,12 @@ export const Partition = {
   fromJSON(object: any): Partition {
     return {
       partitionId: isSet(object.partitionId) ? Number(object.partitionId) : 0,
-      role: isSet(object.role) ? partition_PartitionBrokerRoleFromJSON(object.role) : 0,
-      health: isSet(object.health) ? partition_PartitionBrokerHealthFromJSON(object.health) : 0,
+      role: isSet(object.role)
+        ? partition_PartitionBrokerRoleFromJSON(object.role)
+        : Partition_PartitionBrokerRole.LEADER,
+      health: isSet(object.health)
+        ? partition_PartitionBrokerHealthFromJSON(object.health)
+        : Partition_PartitionBrokerHealth.HEALTHY,
     };
   },
 
@@ -2932,8 +2968,8 @@ export const Partition = {
   fromPartial<I extends Exact<DeepPartial<Partition>, I>>(object: I): Partition {
     const message = createBasePartition();
     message.partitionId = object.partitionId ?? 0;
-    message.role = object.role ?? 0;
-    message.health = object.health ?? 0;
+    message.role = object.role ?? Partition_PartitionBrokerRole.LEADER;
+    message.health = object.health ?? Partition_PartitionBrokerHealth.HEALTHY;
     return message;
   },
 };

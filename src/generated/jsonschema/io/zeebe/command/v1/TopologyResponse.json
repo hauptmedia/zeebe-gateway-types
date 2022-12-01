@@ -74,22 +74,22 @@
     "Partition_PartitionBrokerRole": {
       "description": "Describes the Raft role of the broker for a given partition",
       "enum": [
-        -1,
-        0,
-        1,
-        2
+        "FOLLOWER",
+        "INACTIVE",
+        "LEADER",
+        "UNRECOGNIZED"
       ],
-      "type": "number"
+      "type": "string"
     },
     "Partition_PartitionBrokerHealth": {
       "description": "Describes the current health of the partition",
       "enum": [
-        -1,
-        0,
-        1,
-        2
+        "DEAD",
+        "HEALTHY",
+        "UNHEALTHY",
+        "UNRECOGNIZED"
       ],
-      "type": "number"
+      "type": "string"
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#"
